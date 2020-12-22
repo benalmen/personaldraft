@@ -1,28 +1,296 @@
+* {margin: 0;}
+
+/* header and nav bar */
+
 nav {
     display: flex;
+    flex-direction: row;
+    /* default: flex-wrap: nowrap; */
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 50px;
+    height: 45px;
     margin: 0 auto;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 0;
+    background-color: white;
+    z-index: 10;
 }
 
 #navName {
-    position: relative;
-    top: 10px;
-    left: 20px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    margin: 3px;
+    text-align: center;
     font-size: 26px;
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
     text-transform: uppercase;
+    /* border: 1px solid seagreen; */
+}
+
+#navSpacer {
+    width: 50%;
 }
 
 .navLinks {
-    border: 1px solid red;
-    position: absolute;
-    vertical-align: middle;
-    font-size: 18px;
-    margin: 0 auto;
+    /* border: 1px solid red; */
+    text-align: center;
+    margin: 3px;
+    text-transform: capitalize;
+    margin-right: 30px;
+    font-weight: 100;
+}
+
+/* HERO SPACE */
+
+#heroGrid {
+    display: grid;
+    grid-template-columns: 1fr 400px 400px 1fr;
+    grid-template-rows: 200px 40px 1fr;
+    grid-template-areas: 
+        'blank1 blank1 blank1 blank1'
+        'blank2 name selfie blank3'
+        'blank2 job selfie blank3';
+    position: relative;
+    height: 800px;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/IMG_20150928_155909.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-color: rgb(133, 216, 255);
+}
+
+.blank1 {
+    grid-area: blank1;
+    /* background-color: blue; */
+}
+.blank2 {
+    grid-area: blank2;
+    /* background-color: blue; */
+}
+.blank3 {
+    grid-area: blank3;
+    /* background-color: blue; */
+}
+.blank4 {
+    grid-area: blank4;
+    /* background-color: blue; */
+}
+
+#heroGrid > .selfie {
+    grid-area: selfie;
+    background-color: rgb(255, 255, 255, .5);
+    border-radius: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    margin-left: -60px;
+    height: 360px;
+    width: 360px;
+    z-index: 1;
+}
+
+#heroGrid > .name {
+    grid-area: name;
+    background-color: rgb(173, 255, 47, .8);
+    text-align: right;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+#heroGrid > .job {
+    grid-area: job;
+    background-color: rgb(255, 105, 180, .6);
+    text-align: right;
+    height: 300px;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+@media only screen and (min-width: 1600px) {
+    .disapHero {
+        opacity: 0;
+        transition: opacity 500ms ease-in-out;
+        -moz-transition: opacity 500ms ease-in-out;
+        -webkit-transition: opacity 500ms ease-in-out;
+    }
+}
+@media only screen and (max-width: 1599px) {
+    .disapHero {
+        opacity: 1;
+        transition: opacity 500ms ease-in-out;
+        -moz-transition: opacity 500ms ease-in-out;
+        -webkit-transition: opacity 500ms ease-in-out;
+    }
+}
+
+
+
+.breaker {
+    display: block;
+    background: rgb(255, 255, 255);
+    width: 100vw;
+    height: 200px;
+}
+
+
+
+#aboutGrid {
+    display: grid;
+    grid-template-columns: 1fr 800px 1fr;
+    grid-template-rows: 1fr 400px 1fr;
+    grid-template-areas: 
+        'blank1 blank1 blank1'
+        'blank2 aboutPreview blank3'
+        'blank2 blank4 blank3';
+    position: relative;
+    height: 800px;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/calipano1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-color: rgb(133, 216, 255);
+}
+
+.aboutPreview {
+    grid-area: aboutPreview;
+    background: rgb(173, 255, 47, .6);
+    width: 800px;
+}
+
+.aboutPreview > h1 {
+    text-align: left;
+    margin: 20px;
+    margin-top: 40px;
+    padding: 10px;
+}
+.aboutPreview > h3 {
+    height: 300px;
+    width: 725px;
+    background: rgb(255, 105, 180, .6);
+    color: white;
+    margin: 40px;
+    padding: 30px;
+    text-overflow: wrap;
+}
+
+#projectGrid {
+    display: grid;
+    grid-template-columns: 1fr 800px 1fr;
+    grid-template-rows: 1fr 400px 1fr;
+    grid-template-areas: 
+        'blank1 blank1 blank1'
+        'blank2 aboutPreview blank3'
+        'blank2 blank4 blank3';
+    position: relative;
+    height: 800px;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/calipano1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-color: rgb(133, 216, 255);
+}
+
+.projectPreview {
+    grid-area: aboutPreview;
+    background: rgba(255, 255, 255, .6);
+    width: 800px;
+}
+
+.projectPreview > h1 {
+    text-align: left;
+    margin: 20px;
+    margin-top: 40px;
+    padding: 10px;
+}
+.projectPreview > h3 {
+    height: 300px;
+    width: 725px;
+    background: rgba(240, 128, 128, .8);
+    color: white;
+    margin: 40px;
+    padding: 30px;
+    text-overflow: wrap;
+}
+
+
+@media only screen and (min-width: 1600px) {
+    .disapHero {
+        opacity: 0;
+        transition: opacity 500ms ease-in-out;
+        -moz-transition: opacity 500ms ease-in-out;
+        -webkit-transition: opacity 500ms ease-in-out;
+    }
+}
+@media only screen and (max-width: 1599px) {
+    .disapHero {
+        opacity: 1;
+        transition: opacity 500ms ease-in-out;
+        -moz-transition: opacity 500ms ease-in-out;
+        -webkit-transition: opacity 500ms ease-in-out;
+    }
+}
+
+
+
+
+
+
+h1 {
+    font-size: 2em;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+}
+h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+}
+h3 {
+    font-size: 1.17em;
+    font-weight: 400;
+    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+h4 {
+    font-style: 1.12em;
+    font-weight: 300;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+}
+h5 {
+    font-style: .83em;
+    font-weight: 200;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+}
+h6 {
+    font-style: .75em;
+    font-weight: 100;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.endTest {
+    height: 5000px;
 }
