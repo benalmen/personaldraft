@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/13ff722376.js" crossorigin="anonymous"></script>
-    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="css/index2.css" rel="stylesheet" type="text/css">
     <title>Ben Almen</title>
 </head>
 
@@ -14,17 +14,18 @@
 
 
 <nav>
-    <h2 id="navName"><a class="buttonNameStart buttonName" href="/index.html">Ben Almen</a></h2>
-    <ul id="navLinks">
-        <li class="navButton navSpacer"></li>
-        <li class="navButton"><a class="aboutButtonSwitch" href="/about.html">About</a></li>
-        <li class="navButton"><a class="portfolioButtonSwitch" href="/portfolio.html">Portfolio</a></li>
-        <li class="navButton"><a class="contactButtonSwitch" href="/contact.html">Contact</a></li>
+    <h2><a id="navName" href="/index.html">Ben Almen</a></h2>
+    <ul class="navLinks navLinksUp">
+        <li><a class="buttonAbout navButton" href="/about.html">About</a></li>
+        <li><a class="buttonPortfolio navButton" href="/portfolio.html">Portfolio</a></li>
+        <li><a class="buttonContact navButton" href="/contact.html">Contact</a></li>
     </ul>
 </nav>
 
-<div>
-    <i class="fas fa-arrow-down fa-3x arrow arrowStart"></i>
+<!-- FLOATING ARROW -->
+
+<div class="arrow arrowStart">
+    <i class="fas fa-arrow-down fa-3x"></i>
 </div>
 
 
@@ -42,10 +43,9 @@
 
     <!-- ABOUT CARD -->
 
-    <section class="aboutCard picBR">
-        <div class="blank aboutBlank fold">
+    <section id="about" class="cardBG">
+        <div class="card">
             <h1 class="aboutName">What I'm About</h1>
-            <!-- <img class="aboutImage" src="images/gull.jpg"></img> -->
             <h5 class="aboutText">
                 <div class="tldr">Passion-driven</div>
                 Writer, artist, musician, linguaphile, chromatophile, bibliophile, flexible perfectionist, avid naturalist, mindfulness enthusiast...<br>
@@ -56,16 +56,16 @@
                 <div class="tldr">Skilled listener, uses powers for good</div>
                 I specialize in friendly user research and abstract empirical observation, translating emotion and imagination into holistically-balanced products.<br>
             </h5>
+            <h3><a id="moreAbout" class="moreButton" href="/about.html">See more... <i class="fas fa-arrow-right fa-1x"></i></a></h3>
+            <div id="revealAbout" class="revealButton"></div>
         </div>
-        <h3><a class="seeMore" href="/about.html">See more... <i class="fas fa-arrow-right fa-1x"></i></a></h3>
-        <div id="aboutPhoto" class="seePhoto"></div>
-        <div id="aboutOverlay"></div>
+        <div id="aboutGone"></div>
     </section>
 
     <!-- PREVIEW CARD -->
 
-    <section class="portfolioCard">
-        <div class="blank portfolioBlank fold">
+    <section id="portfolio" class="cardBG">
+        <div class="card">
             <h1 class="portfolioName">Some Things I've Done</h1>
             <h5 class="aboutText">
                 <div class="tldr">Passion-driven</div>
@@ -77,22 +77,21 @@
                 <div class="tldr">Skilled listener, uses powers for good</div>
                 I specialize in friendly user research and abstract empirical observation, translating emotion and imagination into holistically-balanced products.<br>
             </h5>
+            <h3><a id="morePortfolio" class="moreButton" href="/portfolio.html">See more... <i class="fas fa-arrow-right fa-1x"></i></a></h3>
+            <div id="revealPortfolio" class="revealButton"></div>
         </div>
-        <h3><a class="seeMore" href="/portfolio.html">See more... <i class="fas fa-arrow-right fa-1x"></i></a></h3>
-        <div id="portfolioPhoto" class="seePhoto"></div>
-        <div id="portfolioOverlay"></div>
+        <div id="portfolioGone"></div>
     </section>
 
     <!-- CONTACT CARD -->
 
-    <section class="contactCard">
-        <div class="blank contactBlank fold">
+    <section id="contact" class="contactCard">
+        <div class="card">
             <h1 class="contactName">Contact</h1>
             <h5 class="contactForm">Contact Form Here:</h5>
+            <div id="revealContact" class="revealButton"></div>
         </div>
-        <!-- <h3><a class="seeMore" href="/contact.html">See more... <i class="fas fa-arrow-right fa-1x"></i></a></h3> -->
-        <div id="contactPhoto" class="seePhoto"></div>
-        <div id="contactOverlay"></div>
+        <div id="contactGone"></div>
     </section>
 
 <div class="endTest"></div>
@@ -113,7 +112,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="js/index.js"></script>  
+    <script src="js/index2.js"></script>  
 
 </body>
 </html>

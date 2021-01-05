@@ -17,10 +17,72 @@
     width: 100vw;
 }
 
-.seeMore {
+/* Cards */
+
+.cardBG {   
+    position: sticky;
+    top: 45px;
+    height: 800px;
+    margin: 45px;
+    margin-bottom: 90px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgb(133, 216, 255);
+}
+.card {
     position: absolute;
-    top: 620px;
-    right: 13vw;
+    top: 45px;
+    left: 45px;
+    height: 710px;
+    width: calc(100% - 90px);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+    background-color: white;
+    z-index: 21;
+    transition: all 0.5s ease;
+}
+.revealButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.revealButton:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-width: 0 0 30px 30px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgb(230, 230, 230);
+    background: transparent;
+    -webkit-box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
+    box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
+    /* Firefox 3.0 damage limitation */
+    display: block; width: 0;
+    transition: all 0.5s ease;
+}
+.revealButton:hover:before {
+    border-width: 0 0 50px 50px;
+}
+.coverButton {
+    position: absolute;
+    height: 800px;
+    width: calc(100%);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.5s ease;
+}
+
+
+.moreButton {
+    position: absolute;
+    top: 78%;
+    right: 17%;
     text-decoration: none;
     font-size: 1.3em;
     font-style: normal;
@@ -32,162 +94,75 @@
     z-index: 111;
     transition: all 0.5s ease;
 }
-.seeMore > i {
-    color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
-}
-
-.aboutCard > h3 > .seeMore {
-    z-index: 55;
-}
-.aboutCard > h3 > .seeMore:hover {
+.moreButton:hover {
     font-size: 140%;
     transition: all 0.5s ease;
     text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541);
 }
-.aboutCard > h3> .seeMore:active {
+
+#moreAbout:active {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     transition: all 0.1s ease;
     text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(0, 63, 179, 1), 0px 0px 20px rgba(0, 179, 134, 1);
 }
-
-.portfolioCard > h3 > .seeMore {
-    z-index: 65;
-}
-.portfolioCard > h3 > .seeMore:hover {
-    font-size: 140%;
-    transition: all 0.5s ease;
-    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541);
-}
-.portfolioCard > h3> .seeMore:active {
+#morePortfolio:active {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     transition: all 0.1s ease;
     text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(25, 218, 0, 1), 0px 0px 20px rgba(255, 238, 4, 1);
 }
 
-.contactCard > h3 > .seeMore {
-    z-index: 75;
-}
-.contactCard > h3 > .seeMore:hover {
-    font-size: 140%;
-    transition: all 0.5s ease;
-    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541);
-}
-.contactCard > h3> .seeMore:active {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    transition: all 0.1s ease;
-    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(255, 0, 0, 1), 0px 0px 20px rgba(255, 4, 109, 1);
-}
-
-
-
-.fold {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
-    transition: all 0.5s ease;
-}
-.foldUp {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), calc(100% - 50px) 100%, 0 100%);
-    transition: all 0.5s ease;
-}
-
-.seePhoto {
-    position: absolute;
-    height: 30px;
-    width: 30px;
-    text-align: center;
-    bottom: 65px;
-    right: 65px;
-    padding: 5px;
-    font-size: 20px;
-    z-index: 23;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-.seePhoto::before {
-    content: "";
-    position: absolute;
-    bottom: 0%;
-    right: 0%;
-    width: 0px;
-    height: 0px;
-    border-top: 30px solid #eee;
-    border-right: 30px solid transparent;
-    box-shadow: -1px -1px 5px rgba(0,0,0,0.3);
-    transition: all 0.5s ease;
-}
-.seePhoto:hover::before {
-    content: "";
-    position: absolute;
-    bottom: 0%;
-    right: 0%;
-    width: 0px;
-    height: 0px;
-    border-top: 50px solid #eee;
-    border-right: 50px solid transparent;
-    box-shadow: -5px -5px 10px rgba(0,0,0,0.3);
-    transition: all 0.5s ease;
-}
-
-
+/* Card-down Arrow */
 
 .arrow {
     position: fixed;
-    left: calc(50vw - 15px);
+    right: 0;
+    left: 0;
     bottom: 120px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100px;
     z-index: 113;
-    color: rgba(255, 255, 255, .8);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(0, 0, 0, .3);
+    text-align: center;
     cursor: pointer;
     transition: all 0.5s ease;
 }
-.arrow:hover {
-    position: fixed;
-    left: calc(50vw - 25px);
-    bottom: 120px;
+.arrow > i {
+    color: rgba(255, 255, 255, .6);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 0, 0, .6);
+    transition: all 0.5s ease;
+}
+.arrow > i:hover {
+    color: rgba(255, 255, 255, 1);
     font-size: 400%;
     z-index: 113;
-    color: rgba(255, 255, 255, 1);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(0, 0, 0, .3);
     text-shadow: 0px 12px 5px rgba(88, 88, 88, 0.541);
     cursor: pointer;
     transition: all 0.5s ease;
+}
+@keyframes pulse {
+    0% {opacity: 1;}
+    95% {opacity: .1;}
+    100% {opacity: 1;}
 }
 .arrowStart {
-    bottom: 250px;
-    left: calc(50vw - 20px);
-    font-size: 420%;
+    animation: pulse 1500ms linear infinite;
+    transition: all 0.5s ease;
 }
 .arrowStart:hover {
-    position: fixed;
-    left: calc(50vw - 25px);
-    bottom: 250px;
-    font-size: 460%;
-    z-index: 113;
-    color: rgba(255, 255, 255, 1);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(0, 0, 0, .3);
-    text-shadow: 0px 12px 5px rgba(88, 88, 88, 0.541);
-    cursor: pointer;
-    transition: all 0.5s ease;
+    animation: none;
 }
 
 .arrowUp {
     transform: rotate(180deg);
-    transition: all 0.5s ease;
 }
 .arrowUp:hover {
     text-shadow: 0px -12px 5px rgba(88, 88, 88, 0.541);
 }
-
 .arrowDown {
     transform: rotate(0deg);
-    transition: all 0.5s ease;
 }
 
 
@@ -210,56 +185,51 @@ nav {
 #navName {
     position: absolute;
     top: 5px;
-    left: 5px;
+    left: -250px;
     margin: 3px;
-    text-align: center;
     z-index: 100;
-}
-#navName > a {
-    text-decoration: none;
     font-size: 26px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
+    text-align: center;
     text-transform: uppercase;
+    text-decoration: none;
     color: rgba(255, 255, 255, 1);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     transition: all 1s ease;
     cursor: pointer;
 }
-#navName > a:hover {
+#navName:hover {
     font-size: 140%;
-    transition: all 0.5s ease;
     text-shadow: -10px -8px 5px rgba(88, 88, 88, 0.541);
+    transition: all 0.5s ease;
 }
-#navName > a:active {
+#navName:active {
     text-shadow: -10px -8px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(0, 179, 134, 1), 0px 0px 20px rgba(0, 179, 134, 1);
-}
-.buttonNameStart{
-    margin-left: -250px;
-}
-
-.navSpacer {
-    width: 60%;
+    transition: all .5s ease;
 }
 
     /* Nav List */
 
-#navLinks {
+nav {
+    top: -40px;
+    transition: all 0.5s ease;
+}
+.navLinks {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    margin-right: 1%;
     height: 45px;
-    z-index: 101;   
+    margin-right: 10px;
+    z-index: 1001;   
+    list-style-type: none;
+    transition: all 0.5s ease;
 }
 
 .navButton {
-    list-style-type: none;
-}
-.navButton > a {
     padding-left: 10px;
     padding-right: 10px;
     text-decoration: none;
@@ -274,31 +244,31 @@ nav {
     cursor: pointer;
     transition: all 0.5s ease;
 }
-.navButton > a:hover {
+.navButton:hover {
     font-size: 150%;
     transition: all 0.5s ease;
     text-shadow: 10px -10px 5px rgba(88, 88, 88, 0.541);
 }
-.navButton > a.aboutButtonSwitch:active {
+.buttonAbout:active {
     text-shadow: 10px -10px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(0, 63, 179, 1), 0px 0px 20px rgba(0, 179, 134, 1);
 }
-.navButton > a.portfolioButtonSwitch:active {
+.buttonPortfolio:active {
     text-shadow: 10px -10px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(25, 218, 0, 1), 0px 0px 20px rgba(255, 238, 4, 1);
 }
-.navButton > a.contactButtonSwitch:active {
+.buttonContact:active {
     text-shadow: 10px -10px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(255, 0, 0, 1), 0px 0px 20px rgba(255, 4, 109, 1);
 }
 
 
-.buttonAbout {
+.buttonAboutScroll {
     text-shadow: 0px 0px 5px rgba(0, 63, 179, .5), 0px 0px 20px rgba(0, 179, 134, .5);
     transition: all 0.5s ease;
 }
-.buttonPortfolio {
+.buttonPortfolioScroll {
     text-shadow: 0px 0px 5px rgba(25, 218, 0, .5), 0px 0px 20px rgba(255, 238, 4, .5);
     transition: all 0.5s ease;
 }
-.buttonContact {
+.buttonContactScroll {
     text-shadow: 0px 0px 5px rgba(255, 0, 0, .5), 0px 0px 20px rgba(255, 4, 109, .5);
     transition: all 0.5s ease;
 }
@@ -334,20 +304,12 @@ nav {
     max-width: 350px;
     margin-top: 0;
     transition: all 0.5s ease;
-    cursor: cell;
+    cursor: default;
 }
 .selfie:hover {
     box-shadow: 0px 0px 0px 4px rgba(0, 179, 134,1), .5vw 5px 7px 7px rgba(88, 88, 88, 0.541);
     transform: scale(1.1);
     transition: all 0.5s ease;
-}
-.selfie:active {
-    box-shadow: 0px 0px 0px 4px rgba(0, 179, 134,1), .5vw 5px 7px 7px rgba(88, 88, 88, 0.541);
-    animation: spinnerPic 0.4s ease-in-out;
-}
-@keyframes spinnerPic {
-    0%  {    transform: rotateY(0deg) scale(1.1);   }
-    100%{    transform: rotateY(360deg) scale(1.1); }
 }
 
 
@@ -371,7 +333,7 @@ nav {
     -webkit-text-stroke-color: white;
     z-index: 3;
     transition: all 0.5s ease;
-    cursor: cell;
+    cursor: default;
 }
 .name:hover {
     box-shadow: -1vw -2px 10px 3px rgba(88, 88, 88, 0.541);
@@ -379,16 +341,6 @@ nav {
     transform: scale(1.1); 
     background-color: rgb(0, 179, 134);
     color: rgb(0, 179, 134);
-}
-.name:active {
-    box-shadow: -1vw -2px 10px 3px rgba(88, 88, 88, 0.541);
-    background-color: rgb(0, 179, 134);
-    color: rgb(0, 179, 134);
-    animation: spinnerName .4s ease-in-out;
-}
-@keyframes spinnerName {
-    0%  {    transform: rotateX(0deg) scale(1.1);   }
-    100%{    transform: rotateX(360deg) scale(1.1); }
 }
 
 .job {
@@ -412,6 +364,7 @@ nav {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgb(0, 0, 0);
     z-index: -2;
+    cursor: default;
 }
 
 
@@ -421,17 +374,9 @@ nav {
 /* ****** */
 
 
-.aboutCard {   
-    position: sticky;
-    top: 45px;
+#about {   
     background-image: url(../images/20150531_130501.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgb(133, 216, 255);
-    height: 800px;
-    margin: 45px;
-    margin-bottom: 90px;
+    z-index: 10;
 }
 
 #aboutOverlay {
@@ -447,16 +392,6 @@ nav {
     z-index: 60;
     display: none;
     cursor: pointer;
-}
-
-.aboutBlank {
-    position: absolute;
-    top: 0px;
-    height: 670px;
-    width: calc(100% - 130px);
-    margin: 65px;
-    background-color: white;
-    z-index: 21;
 }
 
 .aboutName {
@@ -489,6 +424,8 @@ nav {
     text-align: left;
     padding: 20px;
     padding-left: 50px;
+    padding-bottom: 50px;
+    padding-top: 50px;
     font-size: 1.1em;
     border-radius: 0px 5px 5px 5px;
     box-shadow: 0px 0px 0px 2px rgb(0, 0, 0, .8);
@@ -515,17 +452,8 @@ nav {
 /* ********** */
 
 
-.portfolioCard {   
-    position: sticky;
-    top: 45px;
+#portfolio {   
     background-image: url(../images/IMG_20150928_155909.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgb(133, 216, 255);
-    height: 800px;
-    margin: 45px;
-    margin-bottom: 90px;
     z-index: 20;
 }
 
@@ -542,16 +470,6 @@ nav {
     z-index: 70;
     display: none;
     cursor: pointer;
-}
-
-.portfolioBlank {
-    position: absolute;
-    top: 0px;
-    height: 670px;
-    width: calc(100% - 130px);
-    margin: 65px;
-    background-color: white;
-    z-index: 21;
 }
 
 .portfolioName {
