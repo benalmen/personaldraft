@@ -99,22 +99,33 @@ $(window).on('scroll', function() {
 $(window).on('scroll', function() {
     var scroll = $(window).scrollTop();
 
-    if ( scroll > 200 ) {
-        $('#navName').css( "left", "5px" );
-    }
-    else {
-        $('#navName').css( "left", "-250px" );
-    }
-});
-$(window).on('scroll', function() {
-    var scroll = $(window).scrollTop();
-
     if ( scroll <= 0 ) {
         $('nav').css( "top", "-40px" );
+        $('#navName').css( "left", "-250px" );
     }
-    if ( scroll > 0 ) {
+    else {
         $('nav').css( "top", "0" );
+        $('#navName').css( "left", "5px" );
     }
+});
+
+$(document).ready(function() {
+    $('.navHoverCheck, nav').hover(
+        function() {
+            $('nav').css( "top", "0" );
+            $('#navName').css( "left", "5px" );
+        },
+        function() {
+            if ($(window).scrollTop() == 0) {
+                $('nav').css( "top", "-40px" );
+                $('#navName').css( "left", "-250px" );
+            }
+            else {
+                $('nav').css( "top", "0" );
+                $('#navName').css( "left", "5px" );
+            }
+        }
+    )
 });
 
 $(window).on('scroll', function() {

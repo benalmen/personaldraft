@@ -62,7 +62,6 @@
     -webkit-box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
     -moz-box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
     box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
-    /* Firefox 3.0 damage limitation */
     display: block; width: 0;
     transition: all 0.5s ease;
 }
@@ -110,7 +109,27 @@
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     transition: all 0.1s ease;
-    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(25, 218, 0, 1), 0px 0px 20px rgba(255, 238, 4, 1);
+    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(25, 218, 0, 1), 0px 0px 20px rgba(0, 179, 134, 1);
+}
+
+/* Text Area */
+
+.name {
+    position: absolute;
+    top: 100px;
+    width: 30%;
+    min-width: 335px;
+    margin-left: 7vw;
+    background-color: rgb(0, 0, 0);
+    padding: 15px;
+    text-align: right;
+    font-size: 28pt;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    z-index: 23;
+    transition: all 0.5s ease;
 }
 
 /* Card-down Arrow */
@@ -119,7 +138,7 @@
     position: fixed;
     right: 0;
     left: 0;
-    bottom: 120px;
+    top: 720px;
     margin-right: auto;
     margin-left: auto;
     width: 100px;
@@ -129,36 +148,36 @@
     transition: all 0.5s ease;
 }
 .arrow > i {
-    color: rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .3);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgba(0, 0, 0, .6);
     transition: all 0.5s ease;
 }
 .arrow > i:hover {
-    color: rgba(255, 255, 255, 1);
-    font-size: 400%;
+    transform: scale(1.5);
     z-index: 113;
-    text-shadow: 0px 12px 5px rgba(88, 88, 88, 0.541);
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 12px 5px rgba(88, 88, 88, 0.5);
     cursor: pointer;
     transition: all 0.5s ease;
 }
 @keyframes pulse {
-    0% {opacity: 1;}
-    95% {opacity: .1;}
-    100% {opacity: 1;}
+    0% {opacity: 1; transform: scale(1.5);}
+    95% {opacity: .1;transform: scale(0.9);}
 }
-.arrowStart {
-    animation: pulse 1500ms linear infinite;
+.arrowStart > i {
+    animation: pulse 1333ms linear infinite;
     transition: all 0.5s ease;
+    color: rgba(255, 255, 255, 1);
 }
-.arrowStart:hover {
+.arrowStart > i:hover {
     animation: none;
 }
 
 .arrowUp {
     transform: rotate(180deg);
 }
-.arrowUp:hover {
+.arrowUp > i:hover {
     text-shadow: 0px -12px 5px rgba(88, 88, 88, 0.541);
 }
 .arrowDown {
@@ -191,7 +210,6 @@ nav {
     font-size: 26px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
-    text-align: center;
     text-transform: uppercase;
     text-decoration: none;
     color: rgba(255, 255, 255, 1);
@@ -253,11 +271,20 @@ nav {
     text-shadow: 10px -10px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(0, 63, 179, 1), 0px 0px 20px rgba(0, 179, 134, 1);
 }
 .buttonPortfolio:active {
-    text-shadow: 10px -10px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(25, 218, 0, 1), 0px 0px 20px rgba(255, 238, 4, 1);
+    text-shadow: 10px -10px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(25, 218, 0, 1), 0px 0px 20px rgba(0, 179, 134, 1);
 }
 .buttonContact:active {
-    text-shadow: 10px -10px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(255, 0, 0, 1), 0px 0px 20px rgba(255, 4, 109, 1);
+    text-shadow: 10px -10px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(255, 0, 0, 1), 0px 0px 20px rgba(0, 179, 134, 1);
 }
+.navHoverCheck {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100vw;
+    z-index: 20;
+}
+
 
 
 .buttonAboutScroll {
@@ -265,11 +292,11 @@ nav {
     transition: all 0.5s ease;
 }
 .buttonPortfolioScroll {
-    text-shadow: 0px 0px 5px rgba(25, 218, 0, .5), 0px 0px 20px rgba(255, 238, 4, .5);
+    text-shadow: 0px 0px 5px rgba(25, 218, 0, .5), 0px 0px 20px rgba(0, 179, 134, .5);
     transition: all 0.5s ease;
 }
 .buttonContactScroll {
-    text-shadow: 0px 0px 5px rgba(255, 0, 0, .5), 0px 0px 20px rgba(255, 4, 109, .5);
+    text-shadow: 0px 0px 5px rgba(255, 0, 0, .5), 0px 0px 20px rgba(0, 179, 134, .5);
     transition: all 0.5s ease;
 }
 
@@ -293,7 +320,7 @@ nav {
 .selfie {
     float: left;
     position: absolute;
-    bottom: 28%;
+    bottom: 33%;
     right: 22%;
     margin-left: 7vw;
     border-radius: 100%;
@@ -313,34 +340,33 @@ nav {
 }
 
 
-.name {
+.heroName {
     position: absolute;
     top: 265px;
     left: 5%;
     width: 30%;
     margin-left: 10vw;
     min-width: 400px;
-    background-color: rgba(0, 0, 0, 1);
-    box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, 1), -3px -3px 7px 2px rgb(0, 179, 134);
+    background: rgb(0,63,179);
+    background: linear-gradient(155deg,rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%);
+    box-shadow: -3px -1px 6px 2px rgb(0, 179, 134);
     padding-right: 10px;
     text-align: right;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 44pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: rgb(0, 0, 0);
+    font-size: 3.6em;
+    color: black;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: white;
     z-index: 3;
     transition: all 0.5s ease;
     cursor: default;
 }
-.name:hover {
+.heroName:hover {
     box-shadow: -1vw -2px 10px 3px rgba(88, 88, 88, 0.541);
     transition: all 0.5s ease;   
-    transform: scale(1.1); 
-    background-color: rgb(0, 179, 134);
-    color: rgb(0, 179, 134);
+    transform: scale(1.1);
+    color: white;
+    background: rgb(0,63,179);
+    background: linear-gradient(155deg,rgba(0,63,179,1) 25%, rgba(0,197,134,1) 75%);
 }
 
 .job {
@@ -351,11 +377,11 @@ nav {
     height: 200px;
     min-width: 280px;
     background-color: rgba(255, 255, 255, 1);
-    border-radius: 0px 5px 0px 5px;
+    border-radius: 0px 5px 5px 5px;
     box-shadow: 0px 0px 0px 3px rgb(0, 0, 0, 1), 0px 0px 15px 0px rgba(0, 179, 134, 1);
+    padding-left: 3vw;
     text-align: left;
     line-height: 60px;
-    padding-left: 3vw;
     font-size: 1.6em;
     font-style: normal;
     text-transform: uppercase;
@@ -379,41 +405,10 @@ nav {
     z-index: 10;
 }
 
-#aboutOverlay {
-    position: relative;
-    top: 0;
-    background-image: url(../images/20150531_130501.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgb(133, 216, 255);
-    height: 800px;
-    margin: 0;
-    z-index: 60;
-    display: none;
-    cursor: pointer;
+#aboutName {
+    box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(0, 63, 179), -3px -3px 30px 0px rgba(0, 179, 134);
 }
 
-.aboutName {
-    position: absolute;
-    top: 80px;
-    text-align: right;
-    background-color: rgb(0, 0, 0);
-    box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(0, 63, 179), -3px -3px 30px 0px rgba(0, 179, 134);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 26pt;
-    font-weight: 700;
-    padding: 15px;
-    text-transform: uppercase;
-    color: rgb(0, 0, 0);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
-    z-index: 23;
-    width: 30%;
-    min-width: 235px;
-    margin-left: 7vw;
-    transition: all 0.5s ease;
-}
 
 .aboutText {
     position: relative;
@@ -426,7 +421,6 @@ nav {
     padding-left: 50px;
     padding-bottom: 50px;
     padding-top: 50px;
-    font-size: 1.1em;
     border-radius: 0px 5px 5px 5px;
     box-shadow: 0px 0px 0px 2px rgb(0, 0, 0, .8);
     z-index: 22;
@@ -436,11 +430,7 @@ nav {
     overflow: scroll;
     text-overflow: ellipsis;
 }
-.tldr {
-    font-weight: 400;
-    text-align: left;
-    font-style: oblique;
-    text-transform: uppercase;
+.titles {
     margin-top: 15px;
     margin-bottom: 5px;
     margin-left: -15px;
@@ -457,40 +447,8 @@ nav {
     z-index: 20;
 }
 
-#portfolioOverlay {
-    position: relative;
-    top: 0;
-    background-image: url(../images/IMG_20150928_155909.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgb(133, 216, 255);
-    height: 800px;
-    margin: 0;
-    z-index: 70;
-    display: none;
-    cursor: pointer;
-}
-
-.portfolioName {
-    position: absolute;
-    top: 80px;
-    text-align: right;
-    background-color: rgb(0, 0, 0);
-    box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(25, 218, 0), -3px -3px 30px 0px rgb(255, 238, 4);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 26pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 15px;
-    color: rgb(0, 0, 0);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
-    z-index: 23;
-    width: 30%;
-    min-width: 435px;
-    margin-left: 7vw;
-    transition: all 0.5s ease;
+#portfolioName {
+    box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(25, 218, 0), -3px -3px 30px 0px rgb(0, 179, 134);
 }
 
 .portfolioText {
@@ -644,7 +602,7 @@ nav {
     top: 80px;
     text-align: right;
     background-color: rgb(0, 0, 0);
-    box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(255, 0, 0), -3px -3px 30px 0px rgb(255, 4, 109);
+    box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(255, 0, 0), -3px -3px 30px 0px rgb(0, 179, 134);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 26pt;
     font-weight: 700;
@@ -696,7 +654,7 @@ footer {
     height: 100px;
     width: 100vw;
     background-color: black;
-    z-index: 50;
+    z-index: 250;
 }
 
 .footSpacer {
@@ -761,42 +719,39 @@ footer {
 /* ******** */
 
 h1 {
-    font-size: 2em;
-    font-weight: 700;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
+    font-weight: 700;
 }
 h2 {
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 500;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
 }
 h3 {
     font-size: 1.17em;
     font-weight: 400;
     font-style: italic;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 h4 {
-    font-size: 1.12em;
-    font-weight: 300;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    text-align: left;
+    font-style: oblique;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-transform: uppercase;
 }
 h5 {
-    font-size: .83em;
-    font-weight: 200;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-h6 {
     font-size: .75em;
     font-weight: 100;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
 }
 p {
-    font-size: 1.12em;
+    font-size: 1.1em;
     font-weight: 100;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
