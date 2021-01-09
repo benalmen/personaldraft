@@ -61,29 +61,59 @@ $(window).resize(function() {
 
 // SCROLL ARROW
 
+// $(window).scroll(example);
 
-$(document).ready(function() {
-    $('.arrow').click(function() {
-        window.scrollBy(0, 880);
-    })
-});
+// function example() {
+//     var position = $(window).position();
+//     console.log("Scroll from Top: " + position.top);
+// };
 
-$(window).on('scroll', function() {
-    var scroll = $(window).scrollTop();
 
-    if (scroll > 2400) {
-        $('.arrow').removeClass( "arrowDown" ).addClass( "arrowUp" );
-        $('.arrow').click(function() {window.scrollBy(0, -5000);})
+var about = $('#about').offset().top;
+// var portfolio = $('#portfolio').position();
+// var contact = $('#contact').position();
+
+$(window).scroll(function () {
+
+    var currentscroll = $(document).scrollTop();
+
+    console.log("about.top:" + about);
+
+    if (currentscroll >= about) {
+        $('#about').addClass( "aboutStick" );
     }
     else {
-        $('.arrow').removeClass( "arrowUp" ). addClass( "arrowDown" )
-        $('.arrow').click(function() {window.scrollBy(0, 880);})
+        $('#about').removeClass( "aboutStick" );
+    }
+
+    if (scroll < about.top) {
+        $('.arrow').click(function() {
+            window.scrollTo(0, about.top)
+        });
+    }
+    if (scroll >= about.top && scroll < portfolio.top) {
+        $('.arrow').click(function() {
+            window.scrollTo(0, portfolio.top)
+        });
+    }
+    if (scroll >= portfolio.top && scroll < contact.top) {
+        $('.arrow').click(function() {
+            window.scrollTo(0, contact.top)
+        });
+    }
+    if (scroll >= contact.top) {
+        $('.arrow').removeClass( "arrowDown" ).addClass( "arrowUp" );
+        $('.arrow').click(function() {window.scrollTo(0, 0)});
+    }
+    if (scroll <= contact.top) {
+        $('.arrow').removeClass( "arrowUp" ).addClass( "arrowDown" );
     }
 });
 
 
 $(window).on('scroll', function() {
     var scroll = $(window).scrollTop();
+
 
     if ( scroll > 20 ) {
         $('.arrow').removeClass( "arrowStart" );

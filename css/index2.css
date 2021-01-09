@@ -1,8 +1,8 @@
 
 
-/* ********** */
-/* Universal classes (fonts: bottom) */
-/* ********** */
+/* ******** */
+/* UNIVERSAL */
+/* ******** */
 
 * {
     margin: 0;
@@ -14,131 +14,22 @@
     top: 45px;
     margin-bottom: 45px;
     z-index: 10;
+    width: 100%;
+}
+
+.spacer {
+    position: relative;
+    height: calc(100vh - 40px);
     width: 100vw;
+    z-index: -1000;
 }
-
-/* Cards */
-
-.cardBG {   
-    position: sticky;
-    top: 45px;
-    height: 800px;
-    margin: 45px;
-    margin-bottom: 90px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgb(133, 216, 255);
-}
-.card {
-    position: absolute;
-    top: 45px;
-    left: 45px;
-    height: 710px;
-    width: calc(100% - 90px);
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
-    background-color: white;
-    z-index: 21;
-    transition: all 0.5s ease;
-}
-.revealButton {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-.revealButton:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-width: 0 0 30px 30px;
-    border-style: solid;
-    border-color: transparent transparent transparent rgb(230, 230, 230);
-    background: transparent;
-    -webkit-box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
-    -moz-box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
-    box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
-    display: block; width: 0;
-    transition: all 0.5s ease;
-}
-.revealButton:hover:before {
-    border-width: 0 0 50px 50px;
-}
-.coverButton {
-    position: absolute;
-    height: 800px;
-    width: calc(100%);
-    cursor: pointer;
-    z-index: 1000;
-    transition: all 0.5s ease;
-}
-
-
-.moreButton {
-    position: absolute;
-    top: 78%;
-    right: 17%;
-    text-decoration: none;
-    font-size: 1.3em;
-    font-style: normal;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
-    z-index: 111;
-    transition: all 0.5s ease;
-}
-.moreButton:hover {
-    font-size: 140%;
-    transition: all 0.5s ease;
-    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541);
-}
-
-#moreAbout:active {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    transition: all 0.1s ease;
-    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(0, 63, 179, 1), 0px 0px 20px rgba(0, 179, 134, 1);
-}
-#morePortfolio:active {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    transition: all 0.1s ease;
-    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(25, 218, 0, 1), 0px 0px 20px rgba(0, 179, 134, 1);
-}
-
-/* Text Area */
-
-.name {
-    position: absolute;
-    top: 100px;
-    width: 30%;
-    min-width: 335px;
-    margin-left: 7vw;
-    background-color: rgb(0, 0, 0);
-    padding: 15px;
-    text-align: right;
-    font-size: 28pt;
-    text-transform: uppercase;
-    color: rgb(0, 0, 0);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
-    z-index: 23;
-    transition: all 0.5s ease;
-}
-
-/* Card-down Arrow */
+/* ARROW */
 
 .arrow {
     position: fixed;
     right: 0;
     left: 0;
-    top: 720px;
+    bottom: 16%;
     margin-right: auto;
     margin-left: auto;
     width: 100px;
@@ -185,9 +76,161 @@
 }
 
 
-/* ********** */
+
+/* **** */
+/* CARDs */
+/* **** */
+
+
+/* FRAME & BLANK */
+
+.cardBG {   
+    height: 80vh;
+    margin: 0 45px 0 45px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgb(133, 216, 255);
+}
+.card {
+    position: absolute;
+    top: 45px;
+    left: 45px;
+    height: calc(100% - 90px);
+    width: calc(100% - 90px);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+    background-color: white;
+    z-index: 21;
+    transition: all 0.5s ease;
+}
+
+.revealButton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.revealButton:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-width: 0 0 30px 30px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgb(230, 230, 230);
+    background: transparent;
+    -webkit-box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
+    box-shadow: -1px -1px 3px rgba(0,0,0,0.3), -1px -1px 5px rgba(0,0,0,0.2);
+    display: block; width: 0;
+    transition: all 0.5s ease;
+}
+.revealButton:hover:before {
+    border-width: 0 0 50px 50px;
+}
+.coverButton {
+    position: absolute;
+    height: 800px;
+    width: calc(100%);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.5s ease;
+}
+
+/* TEXT BOX */
+
+.name {
+    position: absolute;
+    top: 100px;
+    min-width: 335px;
+    left: 6vw;
+    background-color: rgb(0, 0, 0);
+    padding: 15px;
+    font-size: 2.4em;
+    text-align: right;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    z-index: 23;
+    transition: all 0.5s ease;
+}
+
+.textBox {
+    position: relative;
+    top: 149px;
+    margin: 0 10% 0px 10%;
+    padding: 30px 20px 30px 50px;
+    min-height: 350px;
+    max-height: 50%;
+    border-radius: 0px 5px 5px 5px;
+    -webkit-box-shadow: 0px 0px 0px 2px rgb(0, 0, 0, .8);
+    -moz-box-shadow: 0px 0px 0px 2px rgb(0, 0, 0, .8);
+    box-shadow: 0px 0px 0px 2px rgb(0, 0, 0, .8);
+    background-color: rgba(255, 255, 255, 1);
+    text-align: left;
+    z-index: 22;
+    white-space: normal;
+    overflow: scroll;
+    text-overflow: ellipsis;
+}
+.titles {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: -15px;
+}
+
+/* MORE BUTTON */
+
+.moreButton {
+    position: absolute;
+    top: 580px;
+    right: 13vw;
+    text-align: right;
+    /* border: 2px solid red; */
+    transition: all 0.5s ease;
+}
+.moreText {
+
+    text-decoration: none;
+    font-size: 1.3em;
+
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    z-index: 111;
+    transition: all 0.5s ease;
+}
+.moreButton:hover {
+    font-size: 140%;
+    transition: all 0.5s ease;
+    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541);
+}
+
+#moreAbout:active {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transition: all 0.1s ease;
+    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(0, 63, 179, 1), 0px 0px 20px rgba(0, 179, 134, 1);
+}
+#morePortfolio:active {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transition: all 0.1s ease;
+    text-shadow: 10px 8px 5px rgba(88, 88, 88, 0.541), 0px 0px 5px rgba(25, 218, 0, 1), 0px 0px 20px rgba(0, 179, 134, 1);
+}
+
+
+
+/* ************* */
 /* HEADER/NAV BAR */
-/* ********** */
+/* ************* */
 
 nav {
     position: fixed;
@@ -198,7 +241,8 @@ nav {
     margin: 0 auto;
     padding: 0;
     background:rgb(255, 255, 255);
-    z-index: 99;
+    z-index: 5000;
+    transition: all 0.5s ease;
 }
 
 #navName {
@@ -207,10 +251,8 @@ nav {
     left: -250px;
     margin: 3px;
     z-index: 100;
-    font-size: 26px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
     font-weight: 700;
-    text-transform: uppercase;
     text-decoration: none;
     color: rgba(255, 255, 255, 1);
     -webkit-text-stroke-width: 1px;
@@ -219,7 +261,7 @@ nav {
     cursor: pointer;
 }
 #navName:hover {
-    font-size: 140%;
+    font-size: 160%;
     text-shadow: -10px -8px 5px rgba(88, 88, 88, 0.541);
     transition: all 0.5s ease;
 }
@@ -230,18 +272,13 @@ nav {
 
     /* Nav List */
 
-nav {
-    top: -40px;
-    transition: all 0.5s ease;
-}
 .navLinks {
     display: flex;
-    flex-wrap: nowrap;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     height: 45px;
-    margin-right: 10px;
+
     z-index: 1001;   
     list-style-type: none;
     transition: all 0.5s ease;
@@ -251,8 +288,7 @@ nav {
     padding-left: 10px;
     padding-right: 10px;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: center;
     font-weight: 100;
     text-transform: uppercase;
@@ -263,7 +299,7 @@ nav {
     transition: all 0.5s ease;
 }
 .navButton:hover {
-    font-size: 150%;
+    font-size: 120%;
     transition: all 0.5s ease;
     text-shadow: 10px -10px 5px rgba(88, 88, 88, 0.541);
 }
@@ -306,11 +342,11 @@ nav {
 /* ****** */
 
 .hero {   
-    position: sticky;
+    position: relative;
     left: 0;
     top: 45px;
     background-color: rgb(255, 255, 255);
-    height: 800px;
+    height: 80vh;
     width: 100vw;
     z-index: -10;
 }
@@ -318,12 +354,13 @@ nav {
 
 
 .selfie {
-    float: left;
     position: absolute;
-    bottom: 33%;
+    bottom: 15%;
     right: 22%;
     margin-left: 7vw;
     border-radius: 100%;
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 0px 3px rgba(0,0,0,1);
     box-shadow: 0px 0px 0px 3px rgba(0,0,0,1);
     z-index: 1;
     width: 27%;
@@ -334,6 +371,8 @@ nav {
     cursor: default;
 }
 .selfie:hover {
+    -webkit-box-shadow: 0px 0px 0px 4px rgba(0, 179, 134,1), .5vw 5px 7px 7px rgba(88, 88, 88, 0.541);
+    -moz-box-shadow: 0px 0px 0px 4px rgba(0, 179, 134,1), .5vw 5px 7px 7px rgba(88, 88, 88, 0.541);
     box-shadow: 0px 0px 0px 4px rgba(0, 179, 134,1), .5vw 5px 7px 7px rgba(88, 88, 88, 0.541);
     transform: scale(1.1);
     transition: all 0.5s ease;
@@ -342,13 +381,15 @@ nav {
 
 .heroName {
     position: absolute;
-    top: 265px;
+    top: 30vh;
     left: 5%;
     width: 30%;
     margin-left: 10vw;
     min-width: 400px;
     background: rgb(0,63,179);
     background: linear-gradient(155deg,rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%);
+    -webkit-box-shadow: -3px -1px 6px 2px rgb(0, 179, 134);
+    -moz-box-shadow: -3px -1px 6px 2px rgb(0, 179, 134);
     box-shadow: -3px -1px 6px 2px rgb(0, 179, 134);
     padding-right: 10px;
     text-align: right;
@@ -361,26 +402,30 @@ nav {
     cursor: default;
 }
 .heroName:hover {
+    -webkit-box-shadow: -1vw -2px 10px 3px rgba(88, 88, 88, 0.541);
+    -moz-box-shadow: -1vw -2px 10px 3px rgba(88, 88, 88, 0.541);
     box-shadow: -1vw -2px 10px 3px rgba(88, 88, 88, 0.541);
     transition: all 0.5s ease;   
     transform: scale(1.1);
     color: white;
     background: rgb(0,63,179);
-    background: linear-gradient(155deg,rgba(0,63,179,1) 25%, rgba(0,197,134,1) 75%);
+    background: linear-gradient(20deg,rgba(0,63,179,1) 0%, rgba(0,197,134,1) 50%);
 }
 
 .job {
     position: relative;
-    top: 199px;
+    top: 20vh;
     left: 10vw;
     margin: 0 30% 0 10%;
-    height: 200px;
+    height: 30vh;
     min-width: 280px;
     background-color: rgba(255, 255, 255, 1);
     border-radius: 0px 5px 5px 5px;
+    -webkit-box-shadow: 0px 0px 0px 3px rgb(0, 0, 0, 1), 0px 0px 15px 0px rgba(0, 179, 134, 1);
+    -moz-box-shadow: 0px 0px 0px 3px rgb(0, 0, 0, 1), 0px 0px 15px 0px rgba(0, 179, 134, 1);
     box-shadow: 0px 0px 0px 3px rgb(0, 0, 0, 1), 0px 0px 15px 0px rgba(0, 179, 134, 1);
     padding-left: 3vw;
-    text-align: left;
+    padding-top: 1vh;
     line-height: 60px;
     font-size: 1.6em;
     font-style: normal;
@@ -391,6 +436,7 @@ nav {
     -webkit-text-stroke-color: rgb(0, 0, 0);
     z-index: -2;
     cursor: default;
+    transition: all 0.5s ease;
 }
 
 
@@ -401,39 +447,15 @@ nav {
 
 
 #about {   
+    position: relative;
     background-image: url(../images/20150531_130501.jpg);
     z-index: 10;
 }
 
 #aboutName {
+    -webkit-box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(0, 63, 179), -3px -3px 30px 0px rgba(0, 179, 134);
+    -moz-box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(0, 63, 179), -3px -3px 30px 0px rgba(0, 179, 134);
     box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(0, 63, 179), -3px -3px 30px 0px rgba(0, 179, 134);
-}
-
-
-.aboutText {
-    position: relative;
-    top: 149px;
-    left: 4vw;
-    margin: 0 20% 0px 10%;
-    background-color: rgba(255, 255, 255, 1);
-    text-align: left;
-    padding: 20px;
-    padding-left: 50px;
-    padding-bottom: 50px;
-    padding-top: 50px;
-    border-radius: 0px 5px 5px 5px;
-    box-shadow: 0px 0px 0px 2px rgb(0, 0, 0, .8);
-    z-index: 22;
-    min-height: 350px;
-    max-height: 50%;
-    white-space: normal;
-    overflow: scroll;
-    text-overflow: ellipsis;
-}
-.titles {
-    margin-top: 15px;
-    margin-bottom: 5px;
-    margin-left: -15px;
 }
 
 
@@ -443,202 +465,32 @@ nav {
 
 
 #portfolio {   
+    position: relative;
     background-image: url(../images/IMG_20150928_155909.jpg);
     z-index: 20;
 }
 
 #portfolioName {
+    -webkit-box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(25, 218, 0), -3px -3px 30px 0px rgb(0, 179, 134);
+    -moz-box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(25, 218, 0), -3px -3px 30px 0px rgb(0, 179, 134);
     box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(25, 218, 0), -3px -3px 30px 0px rgb(0, 179, 134);
 }
-
-.portfolioText {
-    position: relative;
-    top: 149px;
-    left: 4vw;
-    margin: 0 20% 0px 10%;
-    background-color: rgba(255, 255, 255, 1);
-    text-align: left;
-    padding: 20px;
-    padding-left: 50px;
-    font-size: 1.1em;
-    border-radius: 0px 5px 5px 5px;
-    box-shadow: 0px 0px 0px 2px rgb(0, 0, 0, .8);
-    z-index: 22;
-    min-height: 350px;
-    max-height: 50%;
-    white-space: normal;
-    overflow: scroll;
-    text-overflow: ellipsis;
-}
-
-/* .portfolioText {
-    text-align: left;
-    padding: 40px;
-    font-size: 1.8vw;
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0px 0px 0px 2px rgb(0, 0, 0, .8);
-    z-index: 22;
-    min-height: 15%;
-    max-height: 15%;
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-
-
-#pT1 {
-    position: relative;
-    top: 169px;
-    left: 6vw;
-    margin: 0 20% 15px 8%;
-    border-radius: 0px 5px 0px 5px;
-    padding-left: 15%;
-}
-
-#pT2 {
-    position: relative;
-    top: 200px;
-    left: 6vw;
-    margin: 15px 20% 0 8%;
-    border-radius: 5px 0px 5px 0px;
-    padding-right: 12vw;
-}
-
-.portfolioImage {
-    background-color: rgb(255, 255, 255, .5);
-    border-radius: 100%;
-    z-index: 23;
-    width: 20%;
-    max-width: 200px;
-}
-
-#portfolioImage1 {
-    float: left;
-    position: absolute;
-    margin-left: 5vw;
-    top: 180px;
-    margin-top: 0;
-    transition: all 0.5s ease;
-}
-#portfolioImage1:hover {
-    box-shadow: -.5vw 0px 10px 3px rgba(88, 88, 88, 0.541);
-    transform: scale(1.05);
-    cursor: crosshair;
-}
-#portfolioImage2 {
-    position: absolute;
-    right: 5vw;
-    top: 410px;
-    margin-top: 0;
-    transition: all 0.5s ease;
-}
-#portfolioImage2:hover {
-    box-shadow: .5vw 0px 10px 3px rgba(88, 88, 88, 0.541);
-    transform: scale(1.05);
-    cursor: crosshair;
-} */
 
 
 /* ********** */
 /* CONTACT CARD */
 /* ********** */
 
-.contactCard {   
-    position: sticky;
-    top: 45px;
+#contact {   
+    position: relative;
     background-image: url(../images/desertrainbow.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgb(133, 216, 255);
-    height: 800px;
-    margin: 45px;
-    margin-bottom: 90px;
     z-index: 30;
 }
 
-#contactOverlay {
-    position: relative;
-    top: 0;
-    background-image: url(../images/desertrainbow.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgb(133, 216, 255);
-    height: 800px;
-    margin: 0;
-    z-index: 80;
-    display: none;
-    cursor: pointer;
-}
-
-.contactBlank {
-    position: absolute;
-    top: 0px;
-    width: calc(100% - 130px);
-    height: 670px;
-    margin: 65px;
-    background-color: white;
-    z-index: 21;
-}
-
-.contactImage {
-    float: left;
-    position: absolute;
-    margin-left: 7vw;
-    top: 32%;
-    background-color: rgb(255, 255, 255, .5);
-    border-radius: 100%;
-    z-index: 23;
-    width: 30%;
-    max-width: 350px;
-    margin-top: 0;
-    transition: all 0.5s ease;
-}
-
-.contactName {
-    position: absolute;
-    top: 80px;
-    text-align: right;
-    background-color: rgb(0, 0, 0);
+#contactName {
+    -webkit-box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(255, 0, 0), -3px -3px 30px 0px rgb(0, 179, 134);
+    -moz-box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(255, 0, 0), -3px -3px 30px 0px rgb(0, 179, 134);
     box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(255, 0, 0), -3px -3px 30px 0px rgb(0, 179, 134);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 26pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 15px;
-    color: rgb(0, 0, 0);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
-    z-index: 23;
-    width: 30%;
-    min-width: 235px;
-    margin-left: 7vw;
-    transition: all 0.5s ease;
-}
-.contactName:hover {
-    box-shadow: -1vw -2px 10px 3px rgba(88, 88, 88, 0.541);
-    transform: scale(1.1);
-    cursor: crosshair;
-}
-
-.contactForm {
-    position: relative;
-    top: 199px;
-    left: 6vw;
-    margin: 0 20% 0 10%;
-    background-color: rgba(255, 255, 255, 1);
-    text-align: left;
-    padding: 40px;
-    padding-left: 20vw;
-    font-size: 1.8vw;
-    z-index: 22;
-    min-height: 30%;
-    max-height: 40%;
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 
@@ -651,25 +503,21 @@ footer {
     position: fixed;
     bottom: 0;
     margin: 0 auto;
-    height: 100px;
+    height: 8vh;
     width: 100vw;
     background-color: black;
     z-index: 250;
-}
-
-.footSpacer {
-    width: 60%;
 }
 
 #footLinks {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     margin: 0;
+    height: 100%;
     margin-right: 15px;
-    height: 100px;
     list-style-type: none;
     text-decoration: none;
     z-index: 101;   
@@ -677,7 +525,7 @@ footer {
 
 .footIcon {
     padding: 10px;
-    margin: 10px;
+    margin: 0px 10px 0px 10px;
     color: rgba(0, 0, 0, 1);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgb(255, 255, 255);
@@ -692,7 +540,6 @@ footer {
 
 .footButton {
     padding: 10px;
-    min-width: 350px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: right;
     font-weight: 100;
@@ -760,6 +607,42 @@ p {
 
 
 
+@media only screen and (max-width: 600px) {
+    .cardBG {
+        margin: 45px 0px 45px 0px;
+        width: 100vw;
+    }
+    .card {
+        margin: 45px 0px 45px 0px;
+        width: 100vw;
+    }
+    .navLinks {
+        justify-content: space-around;
+        margin: 0;
+        margin-right: 40px;
+    }
+    #navName {
+        display: none;
+    }
+    .name {
+        margin: 0 auto;
+        width: 300px;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    .job {
+        margin: 0 30% 0 0;
+    }
+    .textBox {
+        margin: 0;
+        left: 0;
+        border-radius: 0;
+    }
+    .moreButton {
+        right: 5vw;
+    }
+}
 
 
 
@@ -769,7 +652,7 @@ p {
 /* Design Aids */
 
 .endTest {
-    height: 500px;
+    height: 1000px;
 }
 
 .redLine {
