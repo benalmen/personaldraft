@@ -19,7 +19,7 @@
 
 .spacer {
     position: relative;
-    height: calc(100vh - 40px);
+    height: 100vh;
     width: 100vw;
     z-index: -1000;
 }
@@ -85,6 +85,8 @@
 /* FRAME & BLANK */
 
 .cardBG {   
+    position: relative;
+    top: 45px;
     height: 80vh;
     margin: 0 45px 0 45px;
     background-size: cover;
@@ -93,7 +95,7 @@
     background-color: rgb(133, 216, 255);
 }
 .card {
-    position: absolute;
+    position: relative;
     top: 45px;
     left: 45px;
     height: calc(100% - 90px);
@@ -342,7 +344,7 @@ nav {
 /* ****** */
 
 .hero {   
-    position: relative;
+    position: fixed;
     left: 0;
     top: 45px;
     background-color: rgb(255, 255, 255);
@@ -446,8 +448,7 @@ nav {
 /* ****** */
 
 
-#about {   
-    position: relative;
+#about > .cardBG {   
     background-image: url(../images/20150531_130501.jpg);
     z-index: 10;
 }
@@ -458,14 +459,16 @@ nav {
     box-shadow: -3px -3px 0px 3px rgb(0, 0, 0, .5), -3px -3px 7px 2px rgb(0, 63, 179), -3px -3px 30px 0px rgba(0, 179, 134);
 }
 
-
+.aboutStick {
+    position: fixed;
+    top: 45px;
+}
 /* ********** */
 /* PREVIEW CARD */
 /* ********** */
 
 
-#portfolio {   
-    position: relative;
+#portfolio > .cardBG {   
     background-image: url(../images/IMG_20150928_155909.jpg);
     z-index: 20;
 }
@@ -481,8 +484,7 @@ nav {
 /* CONTACT CARD */
 /* ********** */
 
-#contact {   
-    position: relative;
+#contact > .cardBG {   
     background-image: url(../images/desertrainbow.jpg);
     z-index: 30;
 }
@@ -613,7 +615,8 @@ p {
         width: 100vw;
     }
     .card {
-        margin: 45px 0px 45px 0px;
+        /* margin: 45px 0px 45px 0px; */
+        left: 0;
         width: 100vw;
     }
     .navLinks {

@@ -70,44 +70,60 @@ $(window).resize(function() {
 
 
 var about = $('#about').offset().top;
-// var portfolio = $('#portfolio').position();
-// var contact = $('#contact').position();
+var portfolio = $('#portfolio').offset().top;
+var contact = $('#contact').offset().top;
+var diff = $(window).height();
 
 $(window).scroll(function () {
 
     var currentscroll = $(document).scrollTop();
 
-    console.log("about.top:" + about);
+    console.log("portfolio.top:" + portfolio);
+    console.log("scroll position:" + currentscroll);
 
     if (currentscroll >= about) {
-        $('#about').addClass( "aboutStick" );
+        $('#about > .cardBG').css("position", "fixed");
     }
-    else {
-        $('#about').removeClass( "aboutStick" );
+    if (currentscroll < about) {
+        $('#about > .cardBG').css("position", "relative");
+    }
+    
+    if (currentscroll >= portfolio - diff) {
+        $('#portfolio > .cardBG').css("position", "fixed");
+    }
+    if (currentscroll < portfolio - diff) {
+        $('#portfolio > .cardBG').css("position", "relative");
+    }    
+    
+    if (currentscroll >= contact) {
+        $('#contact > .cardBG').css("position", "fixed");
+    }
+    if (currentscroll < contact) {
+        $('#contact > .cardBG').css("position", "relative");
     }
 
-    if (scroll < about.top) {
-        $('.arrow').click(function() {
-            window.scrollTo(0, about.top)
-        });
-    }
-    if (scroll >= about.top && scroll < portfolio.top) {
-        $('.arrow').click(function() {
-            window.scrollTo(0, portfolio.top)
-        });
-    }
-    if (scroll >= portfolio.top && scroll < contact.top) {
-        $('.arrow').click(function() {
-            window.scrollTo(0, contact.top)
-        });
-    }
-    if (scroll >= contact.top) {
-        $('.arrow').removeClass( "arrowDown" ).addClass( "arrowUp" );
-        $('.arrow').click(function() {window.scrollTo(0, 0)});
-    }
-    if (scroll <= contact.top) {
-        $('.arrow').removeClass( "arrowUp" ).addClass( "arrowDown" );
-    }
+    // if (scroll < about.top) {
+    //     $('.arrow').click(function() {
+    //         window.scrollTo(0, about)
+    //     });
+    // }
+    // if (scroll >= about.top && scroll < portfolio) {
+    //     $('.arrow').click(function() {
+    //         window.scrollTo(0, portfolio)
+    //     });
+    // }
+    // if (scroll >= portfolio.top && scroll < contact.top) {
+    //     $('.arrow').click(function() {
+    //         window.scrollTo(0, contact.top)
+    //     });
+    // }
+    // if (scroll >= contact.top) {
+    //     $('.arrow').removeClass( "arrowDown" ).addClass( "arrowUp" );
+    //     $('.arrow').click(function() {window.scrollTo(0, 0)});
+    // }
+    // if (scroll <= contact.top) {
+    //     $('.arrow').removeClass( "arrowUp" ).addClass( "arrowDown" );
+    // }
 });
 
 
