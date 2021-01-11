@@ -3,29 +3,29 @@
 
 $("#revealAbout").click(function() {
     $("#aboutGone").addClass("coverButton");
-    $("#about > .card").css("opacity", "0");
+    $("#about > .cardBG > .card").css("opacity", "0");
 });
 $("#aboutGone").click(function() {
     $("#aboutGone").removeClass("coverButton");
-    $("#about > .card").css("opacity", "1");
+    $("#about > .cardBG > .card").css("opacity", "1");
 });
 
 $("#revealPortfolio").click(function() {
     $("#portfolioGone").addClass("coverButton");
-    $("#portfolio > .card").css("opacity", "0");
+    $("#portfolio > .cardBG > .card").css("opacity", "0");
 });
 $("#portfolioGone").click(function() {
     $("#portfolioGone").removeClass("coverButton");
-    $("#portfolio > .card").css("opacity", "1");
+    $("#portfolio > .cardBG > .card").css("opacity", "1");
 });
 
 $("#revealContact").click(function() {
     $("#contactGone").addClass("coverButton");
-    $("#contact > .card").css("opacity", "0");
+    $("#contact > .cardBG > .card").css("opacity", "0");
 });
 $("#contactGone").click(function() {
     $("#contactGone").removeClass("coverButton");
-    $("#contact > .card").css("opacity", "1");
+    $("#contact > .cardBG > .card").css("opacity", "1");
 });
 
 $(".revealButton").hover(
@@ -69,16 +69,16 @@ $(window).resize(function() {
 // };
 
 
-var about = $('#about').offset().top;
-var portfolio = $('#portfolio').offset().top;
-var contact = $('#contact').offset().top;
-var diff = $(window).height();
+var about = $('#about > .cardBG').offset().top - 45;
+var portfolio = $('#portfolio > .cardBG').offset().top - 45;
+var contact = $('#contact > .cardBG').offset().top -45;
+var diff = $(window).height() - 180;
 
 $(window).scroll(function () {
 
     var currentscroll = $(document).scrollTop();
 
-    console.log("portfolio.top:" + portfolio);
+    console.log("contact.top:" + contact);
     console.log("scroll position:" + currentscroll);
 
     if (currentscroll >= about) {
@@ -95,46 +95,39 @@ $(window).scroll(function () {
         $('#portfolio > .cardBG').css("position", "relative");
     }    
     
-    if (currentscroll >= contact) {
+    if (currentscroll >= contact - 2 * diff) {
         $('#contact > .cardBG').css("position", "fixed");
     }
-    if (currentscroll < contact) {
+    if (currentscroll < contact - 2 * diff) {
         $('#contact > .cardBG').css("position", "relative");
     }
 
-    // if (scroll < about.top) {
-    //     $('.arrow').click(function() {
-    //         window.scrollTo(0, about)
-    //     });
-    // }
-    // if (scroll >= about.top && scroll < portfolio) {
-    //     $('.arrow').click(function() {
-    //         window.scrollTo(0, portfolio)
-    //     });
-    // }
-    // if (scroll >= portfolio.top && scroll < contact.top) {
-    //     $('.arrow').click(function() {
-    //         window.scrollTo(0, contact.top)
-    //     });
-    // }
-    // if (scroll >= contact.top) {
-    //     $('.arrow').removeClass( "arrowDown" ).addClass( "arrowUp" );
-    //     $('.arrow').click(function() {window.scrollTo(0, 0)});
-    // }
-    // if (scroll <= contact.top) {
-    //     $('.arrow').removeClass( "arrowUp" ).addClass( "arrowDown" );
-    // }
-});
-
-
-$(window).on('scroll', function() {
-    var scroll = $(window).scrollTop();
-
-
-    if ( scroll > 20 ) {
+    if (currentscroll < about) {
+        $('.arrow').click(function() {
+            window.scrollTo(0, about)
+        });
+    }
+    if (currentscroll >= about && currentscroll < portfolio - diff) {
+        $('.arrow').click(function() {
+            window.scrollTo(0, portfolio - diff)
+        });
+    }
+    if (currentscroll >= portfolio && currentscroll < contact - 2 * diff) {
+        $('.arrow').click(function() {
+            window.scrollTo(0, contact)
+        });
+    }
+    if (currentscroll >= contact - 2 * diff) {
+        $('.arrow').removeClass( "arrowDown" ).addClass( "arrowUp" );
+        $('.arrow').click(function() {window.scrollTo(0, 0)});
+    }
+    if (currentscroll <= contact) {
+        $('.arrow').removeClass( "arrowUp" ).addClass( "arrowDown" );
+    }
+    if ( currentscroll > 20 ) {
         $('.arrow').removeClass( "arrowStart" );
     }
-    if ( scroll <= 20 ) {
+    if ( currentscroll <= 20 ) {
         $('.arrow').addClass( "arrowStart" );
     }
 });
