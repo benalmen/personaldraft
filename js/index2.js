@@ -61,79 +61,71 @@ $(window).resize(function() {
 
 // SCROLL ARROW
 
-// $(window).scroll(example);
+$('.arrow').click(function(e) {
 
-// function example() {
-//     var position = $(window).position();
-//     console.log("Scroll from Top: " + position.top);
-// };
+    var scrollpos = $(window).scrollTop();
+    var about = $('#about').offset().top - 45;
+    var portfolio = $('#portfolio').offset().top;
+    var contact = $('#contact').offset().top;
 
-
-var about = $('#about > .cardBG').offset().top - 45;
-var portfolio = $('#portfolio > .cardBG').offset().top - 45;
-var contact = $('#contact > .cardBG').offset().top -45;
-var diff = $(window).height() - 180;
+    if(scrollpos < about) {
+        $('html, body').animate({scrollTop: about + 45}, 200, 'swing');
+    }
+    else if(scrollpos >= about - 45 && scrollpos < portfolio) {
+        $('html, body').animate({scrollTop: portfolio}, 200, 'swing');
+    }
+    else if(scrollpos >= portfolio && scrollpos < contact) {
+        $('html, body').animate({scrollTop: contact}, 200, 'swing');
+    }
+    else if(scrollpos >= contact) {
+        $('html, body').animate({scrollTop: 0}, 400, 'linear');
+    }
+});
 
 $(window).scroll(function () {
 
-    var currentscroll = $(document).scrollTop();
+    var scrollpos = $(window).scrollTop();
+    var about = $('#about').offset().top - 45;
+    var portfolio = $('#portfolio').offset().top - 45;
+    var contact = $('#contact').offset().top - 45;
 
-    console.log("contact.top:" + contact);
-    console.log("scroll position:" + currentscroll);
-
-    if (currentscroll >= about) {
-        $('#about > .cardBG').css("position", "fixed");
+    if (scrollpos >= about) {
+        $('#about > .cardBG').css({"position": "fixed"});
     }
-    if (currentscroll < about) {
-        $('#about > .cardBG').css("position", "relative");
+    if (scrollpos < about) {
+        $('#about > .cardBG').css({"position": "relative"});
     }
-    
-    if (currentscroll >= portfolio - diff) {
-        $('#portfolio > .cardBG').css("position", "fixed");
+    if (scrollpos >= portfolio) {
+        $('#portfolio > .cardBG').css({"position": "fixed"});
     }
-    if (currentscroll < portfolio - diff) {
-        $('#portfolio > .cardBG').css("position", "relative");
+    if (scrollpos < portfolio) {
+        $('#portfolio > .cardBG').css({"position": "relative"});
     }    
-    
-    if (currentscroll >= contact - 2 * diff) {
-        $('#contact > .cardBG').css("position", "fixed");
+    if (scrollpos >= contact) {
+        $('#contact > .cardBG').css({"position": "fixed"});
     }
-    if (currentscroll < contact - 2 * diff) {
-        $('#contact > .cardBG').css("position", "relative");
+    if (scrollpos < contact) {
+        $('#contact > .cardBG').css({"position": "relative"});
     }
 
-    if (currentscroll < about) {
-        $('.arrow').click(function() {
-            window.scrollTo(0, about)
-        });
-    }
-    if (currentscroll >= about && currentscroll < portfolio - diff) {
-        $('.arrow').click(function() {
-            window.scrollTo(0, portfolio - diff)
-        });
-    }
-    if (currentscroll >= portfolio && currentscroll < contact - 2 * diff) {
-        $('.arrow').click(function() {
-            window.scrollTo(0, contact)
-        });
-    }
-    if (currentscroll >= contact - 2 * diff) {
+    if (scrollpos >= contact - 45) {
         $('.arrow').removeClass( "arrowDown" ).addClass( "arrowUp" );
         $('.arrow').click(function() {window.scrollTo(0, 0)});
     }
-    if (currentscroll <= contact) {
+
+    if (scrollpos <= contact - 45) {
         $('.arrow').removeClass( "arrowUp" ).addClass( "arrowDown" );
     }
-    if ( currentscroll > 20 ) {
+    if (scrollpos > 20 ) {
         $('.arrow').removeClass( "arrowStart" );
     }
-    if ( currentscroll <= 20 ) {
+    if (scrollpos <= 20 ) {
         $('.arrow').addClass( "arrowStart" );
     }
 });
 
 
-// Nav Scroll Animations + Highlights
+// NAVIGATION
 
 $(window).on('scroll', function() {
     var scroll = $(window).scrollTop();
@@ -164,37 +156,26 @@ $(document).ready(function() {
                 $('#navName').css( "left", "5px" );
             }
         }
-    )
+    );
 });
 
-$(window).on('scroll', function() {
-    var scroll = $(window).scrollTop();
+$(document).ready(function() {
 
-    if ( scroll > 200 && scroll < 1000 ) {
-        $('.buttonAbout').addClass( "buttonAboutScroll" );
-    }
-    else {
-        $('.buttonAbout').removeClass( "buttonAboutScroll" );
-    }
-});
+    var about = $('#about').offset().top;
+    var portfolio = $('#portfolio').offset().top;
+    var contact = $('#contact').offset().top;
 
-$(window).on('scroll', function() {
-    var scroll = $(window).scrollTop();
+    $('#navName').click(function() {
+        $('html, body').animate({scrollTop: 0}, 200, 'swing')
+    });
+    $('.buttonAbout').click(function() {
+        $('html, body').animate({scrollTop: about + 45}, 200, 'swing');
+    });
+    $('.buttonPortfolio').click(function() {
+        $('html, body').animate({scrollTop: portfolio}, 200, 'swing');
+    });
+    $('.buttonContact').click(function() {
+        $('html, body').animate({scrollTop: contact}, 200, 'swing');
+    });
 
-    if ( scroll > 1000 && scroll < 1900 ) {
-        $('.buttonPortfolio').addClass( "buttonPortfolioScroll" );
-    }
-    else {
-        $('.buttonPortfolio').removeClass( "buttonPortfolioScroll" );
-    }
-});
-$(window).on('scroll', function() {
-    var scroll = $(window).scrollTop();
-
-    if ( scroll > 1900 && scroll < 3800 ) {
-        $('.buttonContact').addClass( "buttonContactScroll" );
-    }
-    else {
-        $('.buttonContact').removeClass( "buttonContactScroll" );
-    }
 });
